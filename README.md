@@ -32,7 +32,7 @@ pip install AioAPIZohoSDPlus==0.0.1
 ```python
 import asyncio
 
-from AioZohoAPI_SDP import Request
+from AioAPIZohoSDPlus import Request
 
 sd_conn = Request('TokenKey', 'https://exemple.sd.ru/api/v3')
 

@@ -26,7 +26,7 @@
 - **Announcements**  -  Реализован полностью ✅
 ## Установка
 ```bash
-pip install aio_zoho_sdp_api
+pip install AioAPIZohoSD==0.0.1
 ```
 ## Ипользование модуля
 ```python

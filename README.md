@@ -30,7 +30,10 @@ pip install AioAPIZohoSD==0.0.1
 ```
 ## Ипользование модуля
 ```python
-from aio_zoho_sdp_api import Request
+import asyncio
 
-sd_conn = Request()
-sd_requests = sd_conn.get_request_data(1)
+from AioZohoAPI_SDP import Request
+
+sd_conn = Request('TokenKey', 'https://exemple.sd.ru/api/v3')
+
+print(asyncio.run(sd_conn.get_request_data('1000')))

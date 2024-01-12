@@ -26,7 +26,7 @@
 - **Announcements**  -  Реализован полностью ✅
 ## Установка
 ```bash
-pip install AioAPIZohoSD==0.0.1
+pip install AioAPIZohoSDPlus==0.0.1
 ```
 ## Ипользование модуля
 ```python

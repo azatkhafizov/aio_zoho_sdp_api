@@ -337,7 +337,7 @@ class Request(SDP):
         attachments = list()
         if attachments_paths:
             for attachment_path in attachments_paths:
-                send_file_res = await self.send_note_file_for_request(request_id, attachment_path)
+                send_file_res = await self.send_file(attachment_path, f'requests/{request_id}/notes/upload')
                 if 'attachment' in send_file_res.keys():
                     attachments.append({'id': str(send_file_res['attachment']['id'])})
         input_data = {"note":{"description": message,
@@ -717,3 +717,19 @@ class Request(SDP):
         '''
         input_data = {"request":{"status":{"id":"6"}}} # "In Progress"
         return await self.update_request(request_id, input_data)
+    
+        
+    async def get_request_detail(self, request_id):
+        '''
+        Дает детальную информацию о заявке
+        '''
+        input_data = {"includes":["request_template",
+                                  "metainfo",
+                                  "self_service_portal",
+                                  "status","_links",
+                                  "priority_matrices",
+                                  "csi_model",
+                                  "get_connected_nodes",
+                                  "status_mandatory_fields",
+                                  "techs_on_leave"]}
+        return await self.get_data(f'requests/{request_id}/request_detail', input_data)
